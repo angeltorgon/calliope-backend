@@ -9,7 +9,7 @@ server.use(helmet());
 server.use(express.json());
 
 server.get('/', (req, res) => {
-    res.send("Welcome to Calliope")
+    res.send("Welcome to Calliope");
 })
 
 module.exports = server;
