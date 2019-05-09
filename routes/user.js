@@ -16,5 +16,14 @@ userRoute.get('/users', async (req, res) => {
         }
 });
 
+userRoute.get('/:id', async (req, res) => {
+        try {
+            const [ user ] = await db('users').where({ id: req.params.id });
+            res.status(200).json({user})
+        } catch (error) {
+            res.status(500).json({error})
+        }
+});
+
 
 module.exports = userRoute;

@@ -6,7 +6,6 @@ const authRoute = express.Router();
 const db = require('../data/knexConfig');
 
 authRoute.post('/signup', async (req, res) => {
-    console.log('req.body')
     const user = req.body;
     if (user.firstName && user.lastName && user.username && user.email && user.password ) {
         try {
