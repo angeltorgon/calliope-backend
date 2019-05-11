@@ -1,5 +1,19 @@
 const express = require('express');
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const secret = "let's keep this a secret";
+
+function generateToke( user ) {
+    const payload = {
+        username: user.username,
+        userId: user.id
+    }
+    const options = {
+        expiresIn: '2hr'
+    }
+    jwt.sign(payload, secret, options);
+}
 
 const authRoute = express.Router();
 
@@ -18,6 +32,10 @@ authRoute.post('/signup', async (req, res) => {
             res.status(500).json({err})
         }
     }
+});
+
+authRoute.post('/login', (req, res) => {
+    
 });
 
 
