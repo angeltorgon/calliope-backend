@@ -36,14 +36,16 @@ authRoute.post('/signup', async (req, res) => {
 
 authRoute.post('/login', (req, res) => {
     const { username, password } = req.body;
-    
-    
     if ( username && password ) {
-        const token = generateToken(req.body);
         db('users').where({username}).first()
         .then(data => {
             const user = data;
-            res.status(200).json({ token, user});
+            if ( user &&  bcryptjs.compareSync( password, user.password)) {
+                const token = generateToken(req.body);
+                res.status(200).json({ token, user});
+            } else {
+                res.status(400).json({message:"invalid credentials"});
+            }
         })
         .catch(err => res.status(500));
     } else {
