@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const secret = "let's keep this a secret";
 
-function generateToke( user ) {
+function generateToken( user ) {
     const payload = {
         username: user.username,
         userId: user.id
@@ -12,7 +12,7 @@ function generateToke( user ) {
     const options = {
         expiresIn: '2hr'
     }
-    jwt.sign(payload, secret, options);
+    return jwt.sign(payload, secret, options);
 }
 
 const authRoute = express.Router();
@@ -35,7 +35,23 @@ authRoute.post('/signup', async (req, res) => {
 });
 
 authRoute.post('/login', (req, res) => {
+    const { username, password } = req.body;
     
+    
+    if ( username && password ) {
+
+        const token = generateToken(req.body);
+        console.log(token);
+        res.status(200).json({});
+        db('users').where({username}).first()
+        .then(res => {
+            
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+    } else {
+        res.send('Please provide username and password');
+    }
 });
 
 
