@@ -39,16 +39,13 @@ authRoute.post('/login', (req, res) => {
     
     
     if ( username && password ) {
-
         const token = generateToken(req.body);
-        console.log(token);
-        res.status(200).json({});
         db('users').where({username}).first()
-        .then(res => {
-            
-            console.log(res)
+        .then(data => {
+            const user = data;
+            res.status(200).json({ token, user});
         })
-        .catch(err => console.log(err));
+        .catch(err => res.status(500));
     } else {
         res.send('Please provide username and password');
     }
