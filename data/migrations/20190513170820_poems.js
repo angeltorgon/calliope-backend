@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
     table.string('username', 255).notNullable();
     table.integer('likes');
     table.timestamp('createdAt').defaultTo(knex.fn.now());
-
   })
 };
 
