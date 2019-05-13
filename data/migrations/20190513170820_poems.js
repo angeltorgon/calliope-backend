@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('poemTitle', 255).notNullable();
     table.string('poem').notNullable();
-    table.string('username', 255).notNullable();
+    table.string('username', 255).notNullable().references('username').inTable('users').onDelete('CASCADE');
     table.integer('likes');
     table.timestamp('createdAt').defaultTo(knex.fn.now());
   })
