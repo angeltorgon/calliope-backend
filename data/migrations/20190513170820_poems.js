@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     table.string('poem').notNullable();
     table.string('username', 255).notNullable();
     table.integer('likes');
-    table.string('comments');
     table.timestamp('createdAt').defaultTo(knex.fn.now());
 
   })
