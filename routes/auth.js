@@ -49,7 +49,7 @@ authRoute.post('/login', (req, res) => {
         })
         .catch(err => res.status(500));
     } else {
-        res.send('Please provide username and password');
+        res.status(400).json({message:'Please provide username and password'});
     }
 });
 

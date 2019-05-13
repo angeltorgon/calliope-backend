@@ -8,6 +8,9 @@ module.exports = {
       filename: './data/data.db3'
     },
     useNullAsDefault: true,
+    seeds: {
+      directory: './data/seeds'
+    },
     migrations: {
       directory: './data/migrations'
     }
