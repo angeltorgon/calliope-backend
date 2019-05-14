@@ -2,7 +2,7 @@ const express = require('express');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const secret = "let's keep this a secret";
+const secret = process.env.SECRET || "let's keep this a secret";
 
 function generateToken( user ) {
     const payload = {
