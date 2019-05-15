@@ -3,6 +3,9 @@ const poemRoute = express.Router();
 const db = require('../data/knexConfig');
 const jwt = require('jsonwebtoken');
 
+const Comments = require('./helpers');
+
+
 const secret = process.env.SECRET || "let's keep this a secret";
 
 function restricted(req, res, next) {
@@ -12,7 +15,6 @@ function restricted(req, res, next) {
             if (err) {
                 res.status(401).json(err)
             } else {
-                console.log(decodedToken)
                 req.decodedJwt = decodedToken;
                 next();
             }
@@ -27,7 +29,15 @@ poemRoute.get('/poems', restricted, async (req, res) => {
     if (token) {
         try {
             const poems = await db('poem');
-            res.status(200).json(poems)
+            const comments = await db('comment');
+            const poemsWithComments = poems.map(poem => {
+                const poemComments = comments.filter( comment => comment.poem_id === poem.id);
+                return {
+                    ...poem,
+                    comments: poemComments
+                }
+            })
+            res.status(200).json(poemsWithComments)
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -36,13 +46,20 @@ poemRoute.get('/poems', restricted, async (req, res) => {
     }
 });
 
-poemRoute.get('/:id/my-poems', restricted, async (req, res) => {
+poemRoute.get('/:id/poems', restricted, async (req, res) => {
     const token = req.decodedJwt;
-    console.log(req.decodedJwt)
     if (token) {
         try {
             const poems = await db('poem').where({user_id: req.params.id});
-            res.status(200).json(poems)
+            const comments = await db('comment');
+            const poemsWithComments = poems.map(poem => {
+                const poemComments = comments.filter( comment => comment.poem_id === poem.id);
+                return {
+                    ...poem,
+                    comments: poemComments
+                }
+            })
+            res.status(200).json(poemsWithComments);
         } catch (error) {
             res.status(500).json({ error })
         }
