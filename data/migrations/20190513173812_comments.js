@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('comments', table => {
+    return knex.schema.createTable('comment', table => {
         table.increments();
         table.integer('user_id', 255).notNullable().references('id').inTable('users').onDelete('CASCADE').index();
         table.string('poemID').notNullable().references('id').inTable('poems').onDelete('CASCADE');
@@ -11,5 +11,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists('comments');
+    return knex.schema.dropTableIfExists('comment');
 };

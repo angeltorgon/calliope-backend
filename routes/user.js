@@ -9,7 +9,7 @@ userRoute.get('/users', async (req, res) => {
     console.log('req.body');
     const user = req.body;
         try {
-            const [ users ] = await db('users');
+            const [ users ] = await db('user');
             res.status(200).json({users})
         } catch (error) {
             res.status(500).json({error})
@@ -18,7 +18,7 @@ userRoute.get('/users', async (req, res) => {
 
 userRoute.get('/:id', async (req, res) => {
         try {
-            const [ user ] = await db('users').where({ id: req.params.id });
+            const [ user ] = await db('user').where({ id: req.params.id });
             res.status(200).json({user})
         } catch (error) {
             res.status(500).json({error})
