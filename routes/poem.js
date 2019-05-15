@@ -17,6 +17,8 @@ function restricted(req, res, next) {
                 next();
             }
         })
+    } else {
+        res.status(400).json({message: "Missing token."})
     }
 }
 
@@ -30,7 +32,7 @@ poemRoute.get('/', restricted, async (req, res) => {
             res.status(500).json({ error })
         }
     } else {
-        res.status(400).json({message: "Must provide token."})
+        res.status(405).json({message: "Must provide token."})
     }
 });
 
