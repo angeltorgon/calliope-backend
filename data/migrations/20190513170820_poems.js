@@ -3,10 +3,10 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('poems', table => {
     table.increments();
     table.string('poemTitle', 255).notNullable();
-    table.string('poem').notNullable();
-    table.string('username', 255).notNullable().references('username').inTable('users').onDelete('CASCADE');
+    table.text('poem').notNullable();
+    table.string('user_id', 255).notNullable().references('id').inTable('users').onDelete('CASCADE').index();
     table.integer('likes');
-    table.timestamp('createdAt').defaultTo(knex.fn.now());
+    table.timestamps(true, true);
   })
 };
 

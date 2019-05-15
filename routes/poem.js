@@ -6,8 +6,8 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET || "let's keep this a secret";
 
 function restricted(req, res, next) {
-    const token = req.headers.authorization;
-    if(token) {
+    if(req.headers.authorization) {
+        const token = req.headers.authorization;
         jwt.verify(token, secret, (err, decodedToken) => {
             if (err) {
                 res.status(401).json(err)
