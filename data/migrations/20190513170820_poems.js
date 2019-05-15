@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('poemTitle', 255).notNullable();
     table.text('poem').notNullable();
-    table.string('user_id', 255).notNullable().references('id').inTable('users').onDelete('CASCADE').index();
-    table.integer('likes');
+    table.integer('user_id').notNullable().references('id').inTable('users').onDelete('CASCADE').index();
+    table.integer('likes').notNullable().defaultsTo(0);
     table.timestamps(true, true);
   })
 };

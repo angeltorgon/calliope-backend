@@ -5,7 +5,6 @@ exports.up = function(knex, Promise) {
         table.integer('user_id', 255).notNullable().references('id').inTable('users').onDelete('CASCADE').index();
         table.string('poemID').notNullable().references('id').inTable('poems').onDelete('CASCADE');
         table.string('comment').notNullable();
-        table.integer('likes').notNullable().defaultsTo(0);
         table.timestamps(true, true);
       })
 };
