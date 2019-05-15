@@ -22,11 +22,11 @@ function restricted(req, res, next) {
     }
 }
 
-poemRoute.get('/', restricted, async (req, res) => {
+poemRoute.get('/poems', restricted, async (req, res) => {
     const token = req.headers.authorization;
     if (token) {
         try {
-            const poems = await db('poems');
+            const poems = await db('poem');
             res.status(200).json(poems)
         } catch (error) {
             res.status(500).json({ error })
@@ -37,12 +37,16 @@ poemRoute.get('/', restricted, async (req, res) => {
 });
 
 poemRoute.get('/:id', restricted, async (req, res) => {
-    try {
-        const [poem] = await db('poems').where({ id: req.params.id });
-        res.status(200).json(poem);
-    } catch (error) {
-        res.status(500).json({ error })
+
+    const poem = await db('poem').where({id:req.params.id});
+    const comments = await db('comment').where({poem_id: req.params.id});
+
+    const response = {
+        ...poem,
+        comments: comments
     }
+        res.status(200).json(response)
+
 });
 
 module.exports = poemRoute;
