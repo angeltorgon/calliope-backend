@@ -36,6 +36,21 @@ poemRoute.get('/poems', restricted, async (req, res) => {
     }
 });
 
+poemRoute.get('/:id/my-poems', restricted, async (req, res) => {
+    const token = req.decodedJwt;
+    console.log(req.decodedJwt)
+    if (token) {
+        try {
+            const poems = await db('poem').where({user_id: req.params.id});
+            res.status(200).json(poems)
+        } catch (error) {
+            res.status(500).json({ error })
+        }
+    } else {
+        res.status(405).json({message: "Must provide token."})
+    }
+});
+
 poemRoute.get('/:id', restricted, async (req, res) => {
 
     const poem = await db('poem').where({id:req.params.id});
