@@ -81,4 +81,14 @@ poemRoute.get('/:id', restricted, async (req, res) => {
 
 });
 
+poemRoute.post('/poems', async (req, res) => {
+    const poem = req.res.body;
+    try {
+        const poemId = await db('poem').insert(poem);
+        res.status(200).json({poemId})
+    } catch (error) {
+        res.status(500).json({error})
+    }
+});
+
 module.exports = poemRoute;
