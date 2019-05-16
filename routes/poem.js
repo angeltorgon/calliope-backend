@@ -91,18 +91,18 @@ poemRoute.post('/', async (req, res) => {
     }
 });
 
-poemRoute.put('/poems/:id', async (req, res) => {
+poemRoute.put('/:id', async (req, res) => {
     const poemId = req.params.id;
     const poem = req.body;
     try {
         const updatedPoem = await db('poem').where({id: poemId}).update(poem);
-        res.status(200).json({poemId})
+        res.status(200).json({updatedPoem})
     } catch (error) {
         res.status(500).json({error})
     }
 });
 
-poemRoute.delete('/poems/:id', async (req, res) => {
+poemRoute.delete('/:id', async (req, res) => {
     const poemId = req.params.id;
     try {
         const deletedPoem = await db('poem').where({id: poemId}).delete();
