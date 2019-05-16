@@ -22,6 +22,17 @@ commentRoute.post('/', async (req,res) => {
     } catch (error) {
         res.status(500).json({error})
     }
-})
+});
+
+commentRoute.put('/:id', async (req,res) => {
+    const commentId = req.params.id;
+    const comment = req.body;
+    try {
+        const updatedComment = await db('comment').where({id: commentId}).update(comment);
+        res.status(200).json(updatedComment);
+    } catch (error) {
+        res.status(500).json({error})
+    }
+});
 
 module.exports = commentRoute;
