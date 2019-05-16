@@ -1,6 +1,6 @@
 require('dotenv').config();
 const server = require('./server');
 
-server.listen(5000, () => {
-    console.log('*** Listening on Port 5000 ***');
+server.listen(4000, () => {
+    console.log('*** Listening on Port 4000 ***');
 })
