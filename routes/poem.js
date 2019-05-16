@@ -91,4 +91,15 @@ poemRoute.post('/poems', async (req, res) => {
     }
 });
 
+poemRoute.put('/poems/:id', async (req, res) => {
+    const poemId = req.params.id;
+    const poem = req.body;
+    try {
+        const updatedPoem = await db('poem').where({id: poemId}).update(poem);
+        res.status(200).json({updatedPoem})
+    } catch (error) {
+        res.status(500).json({error})
+    }
+});
+
 module.exports = poemRoute;
