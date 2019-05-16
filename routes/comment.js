@@ -14,4 +14,14 @@ commentRoute.get('/', async (req, res) => {
     }
 })
 
+commentRoute.post('/', async (req,res) => {
+    const comment = req.body;
+    try {
+        const addedComment = await db('comment').insert(comment);
+        res.status(200).json(addedComment);
+    } catch (error) {
+        res.status(500).json({error})
+    }
+})
+
 module.exports = commentRoute;
