@@ -24,7 +24,7 @@ function restricted(req, res, next) {
     }
 }
 
-poemRoute.get('/poems', restricted, async (req, res) => {
+poemRoute.get('/', restricted, async (req, res) => {
     const token = req.headers.authorization;
     if (token) {
         try {
@@ -46,7 +46,7 @@ poemRoute.get('/poems', restricted, async (req, res) => {
     }
 });
 
-poemRoute.get('/:id/poems', restricted, async (req, res) => {
+poemRoute.get('/user/:id', restricted, async (req, res) => {
     const token = req.decodedJwt;
     if (token) {
         try {
@@ -81,8 +81,8 @@ poemRoute.get('/:id', restricted, async (req, res) => {
 
 });
 
-poemRoute.post('/poems', async (req, res) => {
-    const poem = req.res.body;
+poemRoute.post('/', async (req, res) => {
+    const poem = req.body;
     try {
         const poemId = await db('poem').insert(poem);
         res.status(200).json({poemId})

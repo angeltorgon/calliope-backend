@@ -5,7 +5,7 @@ const userRoute = express.Router();
 
 const db = require('../data/knexConfig');
 
-userRoute.get('/users', async (req, res) => {
+userRoute.get('/', async (req, res) => {
     const user = req.body;
         try {
             const users = await db('user');

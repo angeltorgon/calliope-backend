@@ -35,4 +35,14 @@ commentRoute.put('/:id', async (req,res) => {
     }
 });
 
+commentRoute.delete('/:id', async (req,res) => {
+    const commentId = req.params.id;
+    try {
+        const deletedComment = await db('comment').where({id: commentId}).delete();
+        res.status(200).json(deletedComment);
+    } catch (error) {
+        res.status(500).json({error})
+    }
+});
+
 module.exports = commentRoute;
