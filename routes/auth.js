@@ -40,17 +40,19 @@ authRoute.post('/login', (req, res) => {
         db('user').where({username}).first()
         .then(data => {
             const user = data;
-            // if ( user &&  bcryptjs.compareSync( password, user.password)) {
-            if ( true ) {
-                const token = generateToken(req.body);
-                res.status(200).json({ token, user});
-            } else {
+                if ( user === undefined ) {
+                    res.status(400).json({message:"invalid credentials"});
+                } else if ( bcryptjs.compareSync(password, user.password)) {
+                    const token = generateToken(req.body);
+                    res.status(200).json({ token, user});
+                } else {
+                    console.log('if')
                 res.status(400).json({message:"invalid credentials"});
             }
         })
         .catch(err => res.status(500));
     } else {
-        res.status(400).json({message:'Please provide username and password'});
+        res.status(400).json({message:'Something went wrong! Try again.'});
     }
 });
 
