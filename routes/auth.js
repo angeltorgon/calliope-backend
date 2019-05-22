@@ -41,7 +41,7 @@ authRoute.post('/login', (req, res) => {
         .then(data => {
             const user = data;
                 if ( user === undefined ) {
-                    res.status(400).json({message:"invalid credentials"});
+                    res.status(400).json({message:"User was not found"});
                 } else if ( bcryptjs.compareSync(password, user.password)) {
                     const token = generateToken(req.body);
                     res.status(200).json({ token, user});
