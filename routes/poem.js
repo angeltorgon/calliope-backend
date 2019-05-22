@@ -98,6 +98,7 @@ poemRoute.put('/:id', async (req, res) => {
         const updatedPoem = await db('poem').where({id: poemId}).update(poem);
         res.status(200).json({updatedPoem})
     } catch (error) {
+        console.log('error', error)
         res.status(500).json({error})
     }
 });
