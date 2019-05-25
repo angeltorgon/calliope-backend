@@ -2,6 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('user', table => {
     table.increments();
+    table.string('avatar', 255).notNullable();
     table.string('firstName', 255).notNullable();
     table.string('lastName', 255).notNullable();
     table.string('username', 255).unique().notNullable();

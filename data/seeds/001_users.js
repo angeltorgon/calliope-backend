@@ -6,53 +6,61 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('user').insert([
         {
-          firstName: 'Rick',
-          lastName: 'Sanchez',
+          firstName: 'rick',
+          lastName: 'sanchez',
           username: 'ricksanchez',
           email: 'ricksanchez@gmail.com',
-          password: 'ricksanchez'
+          password: 'ricksanchez',
+          avatar: `https://api.adorable.io/avatars/200/ricksanchez@gmail.com`
         },
         {
-          firstName: 'Beth',
-          lastName: 'Sanchez',
+          firstName: 'beth',
+          lastName: 'sanchez',
           username: 'bethsanchez',
           email: 'bethsanchez@gmail.com',
-          password: 'bethsanchez'
+          password: 'bethsanchez',
+          avatar: `https://api.adorable.io/avatars/200/bethsanchez@gmail.com`
         },
         { 
-          firstName: 'John', 
-          lastName: 'Snow', 
+          firstName: 'john', 
+          lastName: 'snow', 
           username: 'johnsnow', 
           email: 'johnsnow@gmail.com', 
-          password: 'johnsnow' 
+          password: 'johnsnow',
+          avatar: `https://api.adorable.io/avatars/200/johnsnow@gmail.com` 
         },
         { 
-          firstName: 'Bruce', 
-          lastName: 'Wayne', 
+          firstName: 'bruce', 
+          lastName: 'wayne', 
           username: 'brucewayne', 
           email: 'brucewayne@gmail.com', 
-          password: 'brucewayne' 
+          password: 'brucewayne',
+          avatar: `https://api.adorable.io/avatars/200/brucewayne@gmail.com`  
         },
         { 
-          firstName: 'Steve', 
-          lastName: 'Rogers', 
+          firstName: 'steve', 
+          lastName: 'rogers', 
           username: 'steverogers', 
           email: 'steverogers@gmail.com', 
-          password: 'steverogers' 
+          password: 'steverogers',
+          avatar: `https://api.adorable.io/avatars/200/steverogers@gmail.com`  
         },
         { 
-          firstName: 'Selena', 
-          lastName: 'Gomez', 
+          firstName: 'selena', 
+          lastName: 'gomez', 
           username: 'selenagomez', 
           email: 'selenagomez@gmail.com', 
-          password: 'selenagomez' 
+          password: 'selenagomez',
+          avatar: `https://api.adorable.io/avatars/200/selenagomez@gmail.com`  
         },
         { 
-          firstName: 'Jerry', 
-          lastName: 'Smith', 
+          firstName: 'jerry', 
+          lastName: 'smith', 
           username: 'jerrysmith', 
           email: 'jerrysmith@gmail.com', 
-          password: 'jerrysmith' },
+          password: 'jerrysmith', 
+          avatar: `https://api.adorable.io/avatars/200/jerrysmith@gmail.com` 
+        },
       ]);
     });
 };
