@@ -11,7 +11,7 @@ exports.seed = function (knex, Promise) {
           username: 'ricksanchez',
           email: 'ricksanchez@gmail.com',
           password: 'ricksanchez',
-          avatar: `https://api.adorable.io/avatars/200/ricksanchez@gmail.com`
+          avatar: `https://api.adorable.io/avatars/200/ricksanchez`
         },
         {
           firstName: 'beth',
@@ -19,7 +19,7 @@ exports.seed = function (knex, Promise) {
           username: 'bethsanchez',
           email: 'bethsanchez@gmail.com',
           password: 'bethsanchez',
-          avatar: `https://api.adorable.io/avatars/200/bethsanchez@gmail.com`
+          avatar: `https://api.adorable.io/avatars/200/bethsanchez`
         },
         { 
           firstName: 'john', 
@@ -27,7 +27,7 @@ exports.seed = function (knex, Promise) {
           username: 'johnsnow', 
           email: 'johnsnow@gmail.com', 
           password: 'johnsnow',
-          avatar: `https://api.adorable.io/avatars/200/johnsnow@gmail.com` 
+          avatar: `https://api.adorable.io/avatars/200/johnsnow` 
         },
         { 
           firstName: 'bruce', 
@@ -35,7 +35,7 @@ exports.seed = function (knex, Promise) {
           username: 'brucewayne', 
           email: 'brucewayne@gmail.com', 
           password: 'brucewayne',
-          avatar: `https://api.adorable.io/avatars/200/brucewayne@gmail.com`  
+          avatar: `https://api.adorable.io/avatars/200/brucewayne`  
         },
         { 
           firstName: 'steve', 
@@ -43,7 +43,7 @@ exports.seed = function (knex, Promise) {
           username: 'steverogers', 
           email: 'steverogers@gmail.com', 
           password: 'steverogers',
-          avatar: `https://api.adorable.io/avatars/200/steverogers@gmail.com`  
+          avatar: `https://api.adorable.io/avatars/200/steverogers`  
         },
         { 
           firstName: 'selena', 
@@ -51,7 +51,7 @@ exports.seed = function (knex, Promise) {
           username: 'selenagomez', 
           email: 'selenagomez@gmail.com', 
           password: 'selenagomez',
-          avatar: `https://api.adorable.io/avatars/200/selenagomez@gmail.com`  
+          avatar: `https://api.adorable.io/avatars/200/selenagomez`  
         },
         { 
           firstName: 'jerry', 
@@ -59,7 +59,7 @@ exports.seed = function (knex, Promise) {
           username: 'jerrysmith', 
           email: 'jerrysmith@gmail.com', 
           password: 'jerrysmith', 
-          avatar: `https://api.adorable.io/avatars/200/jerrysmith@gmail.com` 
+          avatar: `https://api.adorable.io/avatars/200/jerrysmith` 
         },
       ]);
     });
