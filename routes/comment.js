@@ -1,9 +1,10 @@
 const express = require('express');
 const db = require('../data/knexConfig');
+const restricted = require('./poem');
 
 const commentRoute = express.Router();
 
-commentRoute.get('/', async (req, res) => {
+commentRoute.get('/', restricted, async (req, res) => {
     try {
         const comments = await db('comment');
         res.status(200).json({comments})
