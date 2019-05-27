@@ -3,9 +3,6 @@ const poemRoute = express.Router();
 const db = require('../data/knexConfig');
 const jwt = require('jsonwebtoken');
 
-const Comments = require('./helpers');
-
-
 const secret = process.env.SECRET || "let's keep this a secret";
 
 function restricted(req, res, next) {
