@@ -44,6 +44,7 @@ authRoute.post('/login', (req, res) => {
                     res.status(400).json({message:"User was not found"});
                 } else if ( bcryptjs.compareSync(password, user.password) || (password == user.password)) {
                     const token = generateToken(req.body);
+                    delete user.password
                     res.status(200).json({ token, user});
                 } else {
                     console.log('if')

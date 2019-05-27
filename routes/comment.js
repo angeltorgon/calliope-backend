@@ -10,11 +10,20 @@ commentRoute.get('/', async (req, res) => {
     } catch (error) {
         res.status(500).json({error})   
     }
-})
+});
+
+commentRoute.get('/:id', async (req, res) => {
+    console.log(req)
+    try {
+        const comments = await db('comment').where({poem_id: req.params.id})
+        res.status(200).json({comments})
+    } catch (error) {
+        res.status(500).json({error})   
+    }
+});
 
 commentRoute.post('/', async (req,res) => {
     const comment = req.body;
-    console.log(comment)
     try {
         const addedCommentId = await db('comment').insert(comment);
         res.status(200).json({addedCommentId});
