@@ -26,6 +26,7 @@ exports.up = function(knex, Promise) {
     table.string('line_17');
     table.string('line_18');
     table.string('line_19');
+    table.string('line_20');
   })
 };
 
