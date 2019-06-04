@@ -1,8 +1,8 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('user').truncate()
-    .then(function () {
+  // return knex('user').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('user').insert([
         {
@@ -62,5 +62,5 @@ exports.seed = function (knex, Promise) {
           avatar: `https://api.adorable.io/avatars/200/jerrysmith` 
         },
       ]);
-    });
+    // });
 };

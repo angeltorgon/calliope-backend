@@ -1,8 +1,8 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('comment').truncate()
-    .then(function () {
+  // return knex('comment').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('comment').insert([
         {
@@ -146,5 +146,5 @@ exports.seed = function(knex, Promise) {
           user_id: 2
         },
       ]);
-    });
+    // });
 };

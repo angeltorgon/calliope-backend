@@ -1,8 +1,8 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('poem').truncate()
-    .then(function () {
+  // return knex('poem').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('poem').insert([
         {
@@ -161,5 +161,5 @@ exports.seed = function(knex, Promise) {
         likes:295,
         }
     ]);
-    });
+    // });
 };
