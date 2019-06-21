@@ -6,12 +6,12 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('user').insert([
         {
-          firstName: 'rick',
-          lastName: 'sanchez',
-          username: 'ricksanchez',
-          email: 'ricksanchez@gmail.com',
-          password: 'ricksanchez',
-          avatar: `https://api.adorable.io/avatars/200/ricksanchez`
+          firstName: 'edgar',
+          lastName: 'poe',
+          username: 'edgarpoe',
+          email: 'edgarpoe@gmail.com',
+          password: 'edgarpoe',
+          avatar: `https://api.adorable.io/avatars/200/edgarpoe`
         },
         {
           firstName: 'beth',
