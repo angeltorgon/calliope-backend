@@ -1,17 +1,17 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('user').del()
-    .then(function () {
+  // return knex('user').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('user').insert([
         {
-          firstName: 'rick',
-          lastName: 'sanchez',
-          username: 'ricksanchez',
-          email: 'ricksanchez@gmail.com',
-          password: 'ricksanchez',
-          avatar: `https://api.adorable.io/avatars/200/ricksanchez`
+          firstName: 'edgar',
+          lastName: 'poe',
+          username: 'edgarpoe',
+          email: 'edgarpoe@gmail.com',
+          password: 'edgarpoe',
+          avatar: `https://api.adorable.io/avatars/200/edgarpoe`
         },
         {
           firstName: 'beth',
@@ -62,5 +62,5 @@ exports.seed = function (knex, Promise) {
           avatar: `https://api.adorable.io/avatars/200/jerrysmith` 
         },
       ]);
-    });
+    // });
 };
