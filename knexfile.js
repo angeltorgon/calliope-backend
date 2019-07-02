@@ -3,7 +3,6 @@
 const prodDbConnection = process.env.DATABASE_URL;
 
 module.exports = {
-
   development: {
     client: 'sqlite3',
     connection: {
@@ -27,5 +26,4 @@ module.exports = {
       directory: './data/seeds'
     }
   },
-
 };
