@@ -17,7 +17,6 @@ module.exports = {
       directory: './data/migrations'
     }
   },
-
   production: {
     client: 'pg',
     connection: prodDbConnection,
