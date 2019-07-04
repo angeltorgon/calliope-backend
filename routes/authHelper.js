@@ -1,7 +1,5 @@
 const Users = require('../data/knexConfig');
 
-
-
 const postUser = function()  {
    
 }

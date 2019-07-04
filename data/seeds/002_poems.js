@@ -32,7 +32,7 @@ exports.seed = function(knex, Promise) {
         likes:95,
         },
         {
-        poemTitle:"Reckless Love", 
+        poemTitle:"Love", 
         line_1:"Lorem ipsum dolor sit",
         line_2:"Lorem ipsum dolor sit",
         line_3:"Lorem ipsum dolor sit",
